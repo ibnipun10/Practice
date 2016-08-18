@@ -86,11 +86,45 @@ void BFS(tree *root){
 }
 
 //As per this 
-/*https://docs.google.com/document/d/13QKfckANc8DTp2Nzb3wbd9wVs827k2vdxxHkXiVH088/edit?ts=57b2a9dd  */
+/*     1
+     /  \
+    2    3
+    /\   /\
+   4  5  6  7
+
+for this tree print 4,2,6,3,7
+As seen from the top of the tree
+*/
 void PrintWallOfTree(map<int, int> mHead)
 {
 	map<int, int>::iterator iter = mHead.begin();
 	for (; iter != mHead.end(); iter++){
 		cout << iter->second;
 	}
+}
+
+
+/*
+Convert the tree into a Doubly linked list inplace
+*/
+tree* ConvertTodll(tree* node){
+
+	static tree* temp = NULL, *head = NULL;
+	if (node == NULL){ return NULL; }
+	else
+	{
+		ConvertTodll(node->left);
+		if (head == NULL) head = node;
+		if (temp != NULL)
+			temp->right = node;
+		
+		
+		node->left = temp;
+		temp = node;
+
+		ConvertTodll(node->right);
+
+	}
+
+	return head;
 }

@@ -4,6 +4,18 @@
 #include "stdafx.h"
 #include "treeOpp.h"
 
+/*
+Here is the sample tree
+	      8
+		 / \
+		2	9
+		\		\
+		  4		13
+		   \		\
+			5		44
+		   /
+		  4
+*/
 
 int _tmain(int argc, _TCHAR* argv[])
 {
@@ -16,7 +28,8 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	//InOrder(root);
 	addLevel(root, 0);
-	BFS(root);
+
+	tree* head = ConvertTodll(root);
 	return 0;
 }
 
