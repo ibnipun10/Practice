@@ -4,6 +4,8 @@
 #include "stdafx.h"
 #include "treeOpp.h"
 
+void alternatePrint(tree *);
+
 /*
 Here is the sample tree
 	      8
@@ -26,10 +28,18 @@ int _tmain(int argc, _TCHAR* argv[])
 		root = createTree(values[i], root);
 	}
 
-	//InOrder(root);
-	addLevel(root, 0);
+	alternatePrint(root);
 
-	tree* head = ConvertTodll(root);
+//	tree* head = ConvertTodll(root);
 	return 0;
+}
+
+
+/*
+http://www.geeksforgeeks.org/print-extreme-nodes-of-each-level-of-binary-tree-in-alternate-order/
+
+*/
+void alternatePrint(tree *root){
+	AltPrint(root, 0, 0, true);
 }
 

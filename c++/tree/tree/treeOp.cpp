@@ -128,3 +128,24 @@ tree* ConvertTodll(tree* node){
 
 	return head;
 }
+
+void AltPrint(tree *root, int level, int horlevel, bool bOdd){
+	if (root != NULL){
+		if (level == 0)
+		{
+			cout << root->data;
+			AltPrint(root->left, level - 1, horlevel + 1, bOdd);
+			AltPrint(root->right, level + 1, horlevel + 1, bOdd);
+		}
+		else if (level < 0){
+			if (horlevel % 2 != 0)
+				cout << root->data;
+			AltPrint(root->left, level - 1, horlevel + 1, bOdd);
+		}
+		else if (level >0 ){
+			if(horlevel % 2 == 0)
+				cout << root->data;
+			AltPrint(root->right, level + 1, horlevel + 1, bOdd);
+		}
+	}
+}
