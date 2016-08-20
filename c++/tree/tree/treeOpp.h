@@ -20,3 +20,4 @@ void PrintWallOfTree(map<int, int>);
 void addLevel(tree*, int);
 tree* ConvertTodll(tree*);
 void AltPrint(tree *, int, int, bool);
+tree* RemoveHalfNodes(tree *);

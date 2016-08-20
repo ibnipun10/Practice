@@ -149,3 +149,35 @@ void AltPrint(tree *root, int level, int horlevel, bool bOdd){
 		}
 	}
 }
+
+
+/*
+Given a binary tree, how do you remove all the half nodes?
+http://www.geeksforgeeks.org/given-a-binary-tree-how-do-you-remove-all-the-half-nodes/?utm_source=feedburner&utm_medium=email&utm_campaign=Feed%3A+Geeksforgeeks+%28GeeksforGeeks%29
+*/
+tree* RemoveHalfNodes(tree *root){
+	if (root != NULL){
+
+		root->left = RemoveHalfNodes(root->left);
+		root->right = RemoveHalfNodes(root->right);
+
+		if (root->left == NULL && root->right != NULL){
+			tree* temp = root->right;
+			delete root;
+			return temp;
+
+		}
+		else if (root->right == NULL && root->left != NULL){
+			tree* temp = root->left;
+			delete root;
+			return temp;
+		}
+		else
+		{
+			
+		}
+	}
+
+	return root;
+
+}

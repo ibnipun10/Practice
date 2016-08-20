@@ -28,7 +28,8 @@ int _tmain(int argc, _TCHAR* argv[])
 		root = createTree(values[i], root);
 	}
 
-	alternatePrint(root);
+	root = RemoveHalfNodes(root);
+
 
 //	tree* head = ConvertTodll(root);
 	return 0;
