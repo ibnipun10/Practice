@@ -181,3 +181,20 @@ tree* RemoveHalfNodes(tree *root){
 	return root;
 
 }
+
+
+bool checkBinarySearchTree(tree* root){
+	static tree* prev = NULL;
+	if (root != NULL){
+		if (!checkBinarySearchTree(root->left))
+			return false;
+
+		if (prev != NULL && root->data < prev->data)
+			return false;
+
+		prev = root;
+		if (!checkBinarySearchTree(root->right))
+			return false;
+	}
+	return true;
+}
